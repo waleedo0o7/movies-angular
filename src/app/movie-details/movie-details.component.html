@@ -1,0 +1,56 @@
+<div class="one-movie">
+    <div class="movie-details-container"  style="background-image: url({{movieCover}});">      
+      <div class="overlay"></div>  
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="movie-image">
+                        <img class="img-fluid" src="{{baseUrl}}original{{movieDetails.poster_path}}" />
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="movie-details">
+                        <h2 class="movie-name"> {{movieDetails.original_title}} </h2>
+                        <div class="genres">
+                          Genres : 
+                          <span class="genre" *ngFor="let genre of movieDetails.genres , let last = last">
+                              {{genre.name}}
+                              <span *ngIf="!last">,</span>
+                          </span>
+                        </div>
+                        <div class="release-date"> Release Date : {{movieDetails.release_date}} </div>
+                        <div class="time"> Time : {{movieTime.hours}}h :  {{movieTime.minutes}}m </div>
+
+                        <div class="overview mt-3">
+                            <h5 class="bold mb-0">Overview :</h5>
+                            <p> {{movieDetails.overview}} </p>
+                        </div>
+                        <div class="video-trailer">
+                            <iframe width="100%" height="355" [src]="secureVideoUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="demo-gallery"> 
+  <ul id="lightgallery">
+    <li class="lightgallery-item" *ngFor="let image of backdrops.backdrops ; let index = index">
+      <a (click)="initLightGallery(index)">
+        <img  class="img-fluid" src="{{baseUrl}}original{{image.file_path}}">
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- 
+<pre class="bg-gray">
+{{backdrops.backdrops | json}}
+</pre>
+
+<pre class="bg-gray">
+{{movieDetails | json}}
+</pre>
+ -->   

@@ -1,0 +1,31 @@
+<section id="search-page">
+    <div class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <input #searchInput class="form-control" placeholder="search for movie" />
+                <button (click)="goToSearchPage(searchInput.value)"> Search </button>
+            </div>
+        </div>
+    </div> <!-- search-section -->
+
+    <div class="search-results">
+        <div class="container">
+            <div *ngIf="searchedString">
+                <div  class="one-item" *ngFor="let item of searchResults.results     | paginate: { itemsPerPage: itemsPerPage, currentPage: p , totalItems: totalItems } ">
+                    <div class="item-image" (click)="getMovieDetails(item.id);viewMovieDetals(item.id)">
+                        <img class="img-fluid" *ngIf="item.poster_path" src="{{baseUrl}}/original/{{item.poster_path}}"/>
+                        <img class="img-fluid" *ngIf="!item.poster_path" src="../../assets/images/default.svg"/>
+                    </div> <!-- item-image -->
+                    <div class="item-details">
+                        <h2 (click)="getMovieDetails(item.id);viewMovieDetals(item.id)"> {{item.title}}</h2>
+                        <p class="release-date"> {{item.release_date}} </p>
+                        <p>{{item.overview}} </p>
+                    </div> <!-- item-details -->
+                </div> <!-- one-item -->
+                <div class="pagination-container">
+                    <pagination-controls (pageChange)="getPage(p = $event)"></pagination-controls>
+                </div>
+            </div>
+        </div><!-- container -->
+    </div>
+</section><!-- search -->

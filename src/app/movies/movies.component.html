@@ -1,0 +1,64 @@
+<section id="search" class="search-section">
+    <div class="container">
+        <div class="text-center color-white">            
+            <h1> Welcome To The Movie App</h1>
+            <h4 class="mb-5"> The Gate To Movies World</h4>
+        </div>
+        <div class="search-container">
+            <input #searchInput class="form-control" placeholder="search for movie" />
+            <button (click)="goToSearchPage(searchInput.value)"> Search </button>
+        </div>
+    </div>
+</section>
+
+<section id="popular-movies">
+    <div class="container">
+        <h2 class="section-headline"> popular movies  </h2>
+        <div id="popular-movies-slider" class="owl-carousel owl-theme"> 
+            <div class="item" *ngFor="let item of PopularMovies.results ">
+                <div class="one-item">
+                    <a (click)="getMovieDetails(item.id);viewMovieDetals(item.id)">
+                        <img class="img-fluid" src="{{baseUrl}}/original/{{item.poster_path}}"/>
+                        <h5 class="movie-title"> {{item.title}} </h5>
+                    </a>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section>
+
+<section id="trending-movies">
+    <div class="container">
+        <h2 class="section-headline"> Trending Movies    </h2>
+        <div class="row">
+            <div class="item col-md-3 mb-4" *ngFor="let item of trendingMovies.results   | paginate: { itemsPerPage: itemsPerPage, currentPage: p , totalItems: totalItems } ">
+                <div class="one-item">
+                    <a (click)="getMovieDetails(item.id);viewMovieDetals(item.id)">
+                        <img class="img-fluid" src="{{baseUrl}}/original/{{item.poster_path}}"/>
+                        <h5 class="movie-title"> {{item.title}} </h5>
+                    </a>
+                </div>
+            </div>
+
+            <div class="pagination-container">
+                <pagination-controls (pageChange)="getPage(p = $event)"></pagination-controls>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- <div class="card text-center m-3">
+    <h3 class="card-header">Angular 10 Pagination Example</h3>
+    <div class="card-body">
+        <div *ngFor="let item of pageOfItems">{{item.title}}</div>
+    </div>
+    <div class="card-footer pb-0 pt-3">
+        <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+    </div>
+</div> -->
+
+<pre class="bg-gray">
+    {{trendingMovies | json}}
+<!-- {{latestMovies | json }} -->
+</pre>

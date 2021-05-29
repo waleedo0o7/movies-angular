@@ -1,0 +1,289 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+// main vars
+
+$main-color : #e03226;
+$main-boxShadow : 0 0 13px #d2d2d2a8;
+
+/* start main css */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+    font-weight: bold;
+}
+
+section {
+    padding: 40px 0;
+}
+
+pre.bg-gray {
+    background: #000000;
+    color: #fff;
+}
+.bold {
+    font-weight: bold;
+}
+
+h2.section-headline {
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+h2.section-headline:after{
+    content: "";
+    background: $main-color;
+    width: 30px;
+    height: 5px;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    border-radius: 15px;
+}
+
+
+.owl-nav button {
+    position: absolute;
+    top: calc( 50% - 65px);
+    background: $main-color !important;
+    font-size: 22px !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 500px !important;
+    color: #FFF !important;
+    transition:all 0.2s ease;
+}
+
+.owl-nav button:hover {
+    transition:all 0.2s ease;
+    background: RGBA(0, 0, 0, 0.8) !important;
+}
+
+.owl-carousel .owl-stage {
+    padding: 30px 0;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: $main-color;
+}
+
+
+
+button:focus {
+    outline: none;
+}
+
+
+
+button.owl-prev {
+    left: -70px;
+}
+
+button.owl-next{
+    right: -70px;
+}
+
+.color-white{
+    color: #fff;
+}
+
+#lightgallery {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1f1f1f;
+    flex-wrap: wrap;
+    padding: 6px;
+    margin: 0;
+    li.lightgallery-item {
+        width: 25%;
+        display: inline-flex;
+        padding: 6px;
+        img{
+            cursor: pointer;
+        }
+    }
+}
+
+input.form-control {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #b3b3b3;
+    text-transform: capitalize;
+    padding: 10px 20px;
+}
+
+input.form-control::placeholder{
+    color: #c3c3c3;
+
+}
+input.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #495057;
+    outline: 0;
+    box-shadow: unset;
+    box-shadow: $main-boxShadow;
+}
+
+/* END main css */
+
+/* start pagination css */
+
+.pagination-container {
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    padding: 30px 0;
+    .ngx-pagination .current{
+        background: $main-color;
+    }
+
+}
+
+
+/* END pagination css */
+
+
+.navbar{
+    background: #111 !important;
+    font-size: 18px;
+    padding: 0 20px;
+    .navbar-brand{
+        img.logo{
+            width: 130px;
+        }
+    }
+    .navbar-nav .nav-link{
+        padding: 25px 30px;
+        color: #fff;
+
+        &:focus , &:hover{
+            background: $main-color!important;
+            color: #fff;
+        }
+    }
+}
+
+/* start movies page css */
+
+.one-item {
+    cursor: pointer;
+    background: #fff;
+    padding: 10px;
+    box-shadow: $main-boxShadow;
+    .movie-title{
+        font-size: 18px;
+        padding: 10px 0 0 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    img {
+        min-height: 375px;
+    }        
+}
+
+.search-section {
+    padding: 100px;
+    background: $main-color;
+
+    .search-container{
+        position: relative;
+        button {
+            border: unset;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 11px 30px;
+            cursor: pointer;
+            background: #111;
+            color: #fff;
+        }
+    }
+}
+
+
+/* END movies page css */
+
+// movie details page
+
+.one-movie {
+    .movie-details-container{
+        background: #ebebeb;
+        padding: 30px 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        color: #fff;
+        position: relative;
+        font-size: 18px;
+        padding: 80px 0;
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: RGBA(0,0,0,0.6);
+            width: 100%;
+            height: 100%;
+        }
+        .genres{
+            .release-date{
+                text-transform: capitalize;
+            }
+        }
+    }
+}
+
+
+// search results page
+#search-page{
+    padding: 0;
+    .search-results {
+        padding-top: 40px;
+        .one-item{
+            display: flex;
+            justify-content: center;
+            background: #fff;
+            box-shadow:$main-boxShadow;
+            margin-bottom: 10px;
+            align-items: stretch;
+            max-height: 220px;
+            overflow: hidden;
+            .item-image {
+                width: 15%;
+                background-color: #e0e0e05c;
+                cursor: pointer;
+                overflow : hidden;
+            }
+            .item-details {
+                width: 85%;
+                padding: 20px;
+                h2{
+                    text-transform: capitalize;
+                    margin-bottom: 0;
+                    cursor: pointer;
+                    display: inline-block;
+                }
+                p.release-date{
+                    text-transform: capitalize;
+                    color: #b3b3b3;
+                }
+            }
+        }
+    }
+}
