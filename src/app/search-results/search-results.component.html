@@ -2,7 +2,7 @@
     <div class="search-section">
         <div class="container">
             <div class="search-container">
-                <input #searchInput class="form-control" placeholder="search for movie" />
+                <input [value]="searchedString" #searchInput class="form-control" placeholder="search for movie" />
                 <button (click)="goToSearchPage(searchInput.value)"> Search </button>
             </div>
         </div>
@@ -19,12 +19,14 @@
                     <div class="item-details">
                         <h2 (click)="getMovieDetails(item.id);viewMovieDetals(item.id)"> {{item.title}}</h2>
                         <p class="release-date"> {{item.release_date}} </p>
-                        <p>{{item.overview}} </p>
+                        <p class="overview">{{item.overview}} </p>
                     </div> <!-- item-details -->
                 </div> <!-- one-item -->
+
                 <div class="pagination-container">
                     <pagination-controls (pageChange)="getPage(p = $event)"></pagination-controls>
                 </div>
+
             </div>
         </div><!-- container -->
     </div>

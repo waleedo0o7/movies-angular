@@ -259,7 +259,7 @@ input.form-control:focus {
             display: flex;
             justify-content: center;
             background: #fff;
-            box-shadow:$main-boxShadow;
+            box-shadow: $main-boxShadow;
             margin-bottom: 10px;
             align-items: stretch;
             max-height: 220px;
@@ -283,7 +283,23 @@ input.form-control:focus {
                     text-transform: capitalize;
                     color: #b3b3b3;
                 }
+                p.overview{
+                    display: -webkit-box;
+                    -webkit-line-clamp: 4;
+                    -webkit-box-orient: vertical;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
             }
         }
     }
+}
+
+
+// sidebar
+
+.sidebar {
+    background: #fff;
+    padding: 10px;
+    box-shadow: $main-boxShadow;
 }

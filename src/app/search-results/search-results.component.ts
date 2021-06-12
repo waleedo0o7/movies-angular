@@ -15,19 +15,16 @@ export class SearchResultsComponent implements OnInit {
   apiKey = this.service.apiKey;
   baseUrl = this.service.baseUrl;
   searchedString:any;
-
-
   
   p: number = 1;
   itemsPerPage = 20;
   totalItems: any;
   totalPages:any ;
 
-
   constructor( private http:HttpClient , private service:MainServiceService , private router : Router, private activatedRoute: ActivatedRoute){
     this.activatedRoute.queryParams.subscribe(params => {
       let query = params['query'];
-      this.searchedString = query;
+      this.searchedString = query.replace(/['"]+/g, ''); 
     });
   }
 

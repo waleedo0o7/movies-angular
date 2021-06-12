@@ -12,6 +12,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component'
 import { SearchResultsComponent } from './search-results/search-results.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { TrendingMoviesComponent } from './trending-movies/trending-movies.component';
+import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TrendingMoviesComponent } from './trending-movies/trending-movies.compo
     MoviesComponent,
     MovieDetailsComponent,
     SearchResultsComponent,
-    TrendingMoviesComponent
+    TrendingMoviesComponent,
+    PopularMoviesComponent
   ],
   imports: [
     BrowserModule,
