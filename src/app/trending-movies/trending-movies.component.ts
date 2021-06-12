@@ -52,7 +52,7 @@ export class TrendingMoviesComponent implements OnInit {
       this.trendingMovies = data;
       this.totalItems = this.trendingMovies.total_results;
       this.totalPages = this.trendingMovies.total_pages;
-      console.log(this.trendingMovies.total_pages);
+      console.log(this.trendingMovies);
       
     })
   }

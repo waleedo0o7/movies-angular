@@ -112,6 +112,14 @@ export class MoviesComponent implements OnInit {
     this.router.navigate(['/search'], { queryParams: { query: JSON.stringify(searchedWord)}});
   }
 
+  keyDownFunction(event:any , searchedWord:any) {
+    if (event.keyCode === 13) {
+      console.log(event);
+      this.goToSearchPage(searchedWord);
+      
+    }
+  }
+
   ngOnInit(): void {
     this.getPopularMovies();
     this.getTrendingMovies();

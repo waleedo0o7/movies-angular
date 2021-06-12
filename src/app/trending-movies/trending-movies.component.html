@@ -6,7 +6,7 @@
                 <div class="one-item">
                     <a (click)="getMovieDetails(item.id);viewMovieDetals(item.id)">
                         <img class="img-fluid" src="{{baseUrl}}/original/{{item.poster_path}}"/>
-                        <h5 class="movie-title"> {{item.title}} </h5>
+                        <h5 class="movie-title"> <span *ngIf="item.title"> {{item.title}} </span> {{item.original_name}} </h5>
                     </a>
                 </div>
             </div>

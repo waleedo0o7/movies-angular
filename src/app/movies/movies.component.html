@@ -5,7 +5,7 @@
             <h4 class="mb-5"> The Gate To Movies World</h4>
         </div>
         <div class="search-container">
-            <input #searchInput class="form-control" placeholder="search for movie" />
+            <input (keydown)="keyDownFunction($event , searchInput.value)" #searchInput class="form-control" placeholder="search for movie" />
             <button (click)="goToSearchPage(searchInput.value)"> Search </button>
         </div>
     </div>
@@ -35,7 +35,7 @@
                 <div class="one-item">
                     <a (click)="getMovieDetails(item.id);viewMovieDetals(item.id)">
                         <img class="img-fluid" src="{{baseUrl}}/original/{{item.poster_path}}"/>
-                        <h5 class="movie-title"> {{item.title}} </h5>
+                        <h5 class="movie-title">  <span *ngIf="item.title"> {{item.title}} </span>  {{item.original_name}} </h5>
                     </a>
                 </div>
             </div>
