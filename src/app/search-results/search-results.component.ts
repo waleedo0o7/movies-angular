@@ -47,8 +47,6 @@ export class SearchResultsComponent implements OnInit {
       this.searchResults = data;
       this.totalItems = this.searchResults.total_results;
       this.totalPages = this.searchResults.total_pages;
-      console.log(this.searchResults.total_pages);
-      console.log(this.searchResults);
     })
   }
 
@@ -72,6 +70,7 @@ export class SearchResultsComponent implements OnInit {
     this.http.get(url , {
       params : {
         api_key : this.apiKey,
+        query : this.searchedString,
         page : pageNum
       }
     }).subscribe((data: any) => {
