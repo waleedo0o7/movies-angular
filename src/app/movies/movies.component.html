@@ -2,7 +2,7 @@
     <div class="container">
         <div class="text-center color-white">            
             <h1> Welcome To The Movie App</h1>
-            <h4 class="mb-5"> The Gate To Movies World</h4>
+            <h4 class="mb-5"> Your Gate To Movies</h4>
         </div>
         <div class="search-container">
             <input (keydown)="keyDownFunction($event , searchInput.value)" #searchInput class="form-control" placeholder="search for movie" />
@@ -11,6 +11,7 @@
     </div>
 </section>
 
+
 <section id="popular-movies">
     <div class="container">
         <h2 class="section-headline"> popular movies  </h2>
@@ -18,7 +19,7 @@
             <div class="item" *ngFor="let item of PopularMovies.results ">
                 <div class="one-item">
                     <a (click)="getMovieDetails(item.id);viewMovieDetals(item.id)">
-                        <img class="img-fluid" src="{{baseUrl}}/original/{{item.poster_path}}"/>
+                        <img class="img-fluid" src="{{baseUrl}}/w500/{{item.poster_path}}"/>
                         <h5 class="movie-title"> {{item.title}} </h5>
                     </a>
                 </div>
@@ -34,7 +35,7 @@
             <div class="item col-md-3 mb-4" *ngFor="let item of trendingMovies.results   | paginate: { itemsPerPage: itemsPerPage, currentPage: p , totalItems: totalItems } ">
                 <div class="one-item">
                     <a (click)="getMovieDetails(item.id);viewMovieDetals(item.id)">
-                        <img class="img-fluid" src="{{baseUrl}}/original/{{item.poster_path}}"/>
+                        <img class="img-fluid" src="{{baseUrl}}/w500/{{item.poster_path}}"/>
                         <h5 class="movie-title">  <span *ngIf="item.title"> {{item.title}} </span>  {{item.original_name}} </h5>
                     </a>
                 </div>
@@ -58,7 +59,7 @@
     </div>
 </div> -->
 
-<pre class="bg-gray">
-    {{trendingMovies | json}}
-<!-- {{latestMovies | json }} -->
-</pre>
+<!-- <pre class="bg-gray">
+{{trendingMovies | json}}
+{{latestMovies | json }}
+</pre> -->

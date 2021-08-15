@@ -1,11 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-
-
 // main vars
 
-$main-color : #e03226;
-$main-boxShadow : 0 0 13px #d2d2d2a8;
+$main-color : #db202c;
+$main-boxShadow : 0 0 18px #49494985;
 
 /* start main css */
 html {
@@ -13,9 +11,111 @@ html {
 }
 
 body {
-    background: #f9f9f9;
+    background: #111;
     font-family: 'Poppins', sans-serif;
+    color : rgb(245, 245, 245);
 }
+
+
+::-webkit-scrollbar-track
+{
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #777777;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #777777;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #333 ;
+}
+
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    img{
+        width: 60px;
+    }
+}
+
+
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 35px;
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: 15px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+
+  
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
     font-weight: bold;
@@ -55,21 +155,19 @@ h2.section-headline:after{
     position: absolute;
     top: calc( 50% - 65px);
     background: $main-color !important;
-    font-size: 22px !important;
+    font-size: 16px !important;
     display: flex !important;
     justify-content: center;
     align-items: center;
     width: 35px;
     height: 35px;
     border-radius: 500px !important;
-    color: #FFF !important;
-    transition:all 0.2s ease;
+    color: #FFF !important; 
+    &:hover { 
+        background: RGBA(0, 0, 0, 0.8) !important;
+    }
 }
-
-.owl-nav button:hover {
-    transition:all 0.2s ease;
-    background: RGBA(0, 0, 0, 0.8) !important;
-}
+ 
 
 .owl-carousel .owl-stage {
     padding: 30px 0;
@@ -149,8 +247,36 @@ input.form-control:focus {
     width: 100%;
     font-size: 16px;
     padding: 30px 0;
-    .ngx-pagination .current{
-        background: $main-color;
+    .ngx-pagination{
+        li{
+            display: inline-flex;
+            min-width: 35px;
+            min-height: 35px;
+            justify-content: center;
+            align-items: center;
+            &.small-screen {
+                display: none !important;
+            }
+        }
+        a{
+            color: #f0f0f0;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            border-radius: 500px;
+            min-width: 35px;
+            min-height: 35px;
+            justify-content: center;
+            align-items: center; 
+            &:hover { 
+                background: #000000; 
+                text-decoration: none;
+            }
+        }
+        .current{
+            background: $main-color;
+            border-radius: 500px;
+        }
     }
 
 }
@@ -160,7 +286,7 @@ input.form-control:focus {
 
 
 .navbar{
-    background: #111 !important;
+    background: #2a2a2a  !important;
     font-size: 18px;
     padding: 0 20px;
     .navbar-brand{
@@ -171,6 +297,10 @@ input.form-control:focus {
     .navbar-nav .nav-link{
         padding: 25px 30px;
         color: #fff;
+
+        &.active {
+            background: $main-color;
+        }
 
         &:focus , &:hover{
             background: $main-color!important;
@@ -183,15 +313,16 @@ input.form-control:focus {
 
 .one-item {
     cursor: pointer;
-    background: #fff;
+    background: #1f1f1f;
     padding: 10px;
-    box-shadow: $main-boxShadow;
     .movie-title{
         font-size: 18px;
         padding: 10px 0 0 0;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        font-weight: normal;
+        color : #fff;
     }
     img {
         min-height: 375px;
@@ -211,7 +342,7 @@ input.form-control:focus {
             right: 0;
             padding: 11px 30px;
             cursor: pointer;
-            background: #111;
+            background: #2a2a2a;
             color: #fff;
         }
     }
@@ -224,7 +355,7 @@ input.form-control:focus {
 
 .one-movie {
     .movie-details-container{
-        background: #ebebeb;
+        background: #2a2a2a;
         padding: 30px 0;
         background-size: cover;
         background-repeat: no-repeat;
@@ -233,11 +364,23 @@ input.form-control:focus {
         position: relative;
         font-size: 18px;
         padding: 80px 0;
+        overflow: hidden;
+        .bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
-            background: RGBA(0,0,0,0.6);
+            background: RGBA(0,0,0,0.8);
             width: 100%;
             height: 100%;
         }

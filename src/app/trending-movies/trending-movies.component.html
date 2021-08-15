@@ -5,7 +5,7 @@
             <div class="item col-md-3 mb-4" *ngFor="let item of trendingMovies.results   | paginate: { itemsPerPage: itemsPerPage, currentPage: p , totalItems: totalItems } ">
                 <div class="one-item">
                     <a (click)="getMovieDetails(item.id);viewMovieDetals(item.id)">
-                        <img class="img-fluid" src="{{baseUrl}}/original/{{item.poster_path}}"/>
+                        <img class="img-fluid" src="{{baseUrl}}/w500/{{item.poster_path}}"/>
                         <h5 class="movie-title"> <span *ngIf="item.title"> {{item.title}} </span> {{item.original_name}} </h5>
                     </a>
                 </div>

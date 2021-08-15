@@ -13,7 +13,7 @@
             <div *ngIf="searchedString">
                 <div  class="one-item" *ngFor="let item of searchResults.results     | paginate: { itemsPerPage: itemsPerPage, currentPage: p , totalItems: totalItems } ">
                     <div class="item-image" (click)="getMovieDetails(item.id);viewMovieDetals(item.id)">
-                        <img class="img-fluid" *ngIf="item.poster_path" src="{{baseUrl}}/original/{{item.poster_path}}"/>
+                        <img class="img-fluid" *ngIf="item.poster_path" src="{{baseUrl}}/w500/{{item.poster_path}}"/>
                         <img class="img-fluid" *ngIf="!item.poster_path" src="../../assets/images/default.svg"/>
                     </div> <!-- item-image -->
                     <div class="item-details">

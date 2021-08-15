@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { MainServiceService } from './main-service.service'; 
 
+declare var removeLoadinScreen: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -28,6 +29,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.testData()
+  }
 
+  ngAfterViewInit(){
+    removeLoadinScreen();
   }
 }

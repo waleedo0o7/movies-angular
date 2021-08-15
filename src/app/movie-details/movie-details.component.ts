@@ -5,6 +5,11 @@ import { ActivatedRoute } from '@angular/router';
 import { MainServiceService } from '../main-service.service';
 
 declare const $: any;
+declare var TweenMax: any;
+declare var Power0: any;
+declare var ScrollMagic: any;
+declare var controller: any;
+declare var pageHeaderEffect: any;
 
 @Component({
   selector: 'app-movie-details',
@@ -92,9 +97,7 @@ export class MovieDetailsComponent implements OnInit {
 
 
   initLightGallery(index:any){
-
     let activeSlideNum = index;
-
     $("#lightgallery").lightGallery({
       dynamic: true,
       dynamicEl: this.lightGalleryList,
@@ -102,8 +105,14 @@ export class MovieDetailsComponent implements OnInit {
       });
   }
  
+
+
+
  
   ngOnInit(): void {
+    var controller = new ScrollMagic.Controller();
+
+    
     // $("#lightgallery").lightGallery({pager: true}); 
     console.log(this.getMovieVideo(this.movieId))
     this.getMovieDetails(this.movieId);
@@ -114,4 +123,7 @@ export class MovieDetailsComponent implements OnInit {
 
   }
 
+  ngAfterViewInit() {
+    pageHeaderEffect();    
+  }
 }

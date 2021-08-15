@@ -14,6 +14,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { TrendingMoviesComponent } from './trending-movies/trending-movies.component';
 import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
 
+// Hash Links
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { PopularMoviesComponent } from './popular-movies/popular-movies.componen
     HttpClientModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [ { provide: LocationStrategy, useClass: HashLocationStrategy } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

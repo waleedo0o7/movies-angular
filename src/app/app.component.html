@@ -1,21 +1,26 @@
+<div id="loading-screen">
+    <img src="../assets/images/logo-icon.png" class="img-fluid">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+</div><!-- loading-screen -->
+
 <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" routerLink="/"> <img class="img-fluid logo" src="../assets/images/logo-white.png" /> </a>
+    <a class="navbar-brand" routerLink="/"> <img class="img-fluid logo" src="../assets/images/logo.svg" /> </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" routerLink="movies"  [routerLinkActive]="['active']">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="trending-movies"> Trending Movies </a>
+                <a class="nav-link" routerLink="trending-movies"  [routerLinkActive]="['active']" > Trending Movies </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="popular-movies"> Popular Movies </a>
+                <a class="nav-link" routerLink="popular-movies"  [routerLinkActive]="['active']" > Popular Movies </a>
             </li>
         </ul>
     </div>
 </nav>
-  
+
 <router-outlet></router-outlet>
