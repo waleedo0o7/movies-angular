@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="item col-md-4 mb-4" *ngFor="let item of allMovies.results   | paginate: { itemsPerPage: itemsPerPage, currentPage: p , totalItems: totalItems } ">
+                    <div class="item col-md-4 mb-4" *ngFor="let item of allMovies?.results   | paginate: { itemsPerPage: itemsPerPage, currentPage: p , totalItems: totalItems } ">
                         <div class="one-item">
                             <a (click)="getMovieDetails(item.id);viewMovieDetals(item.id)">
                                 <img class="img-fluid" src="{{baseUrl}}/w500/{{item.poster_path}}"/>

@@ -14,6 +14,7 @@ body {
     background: #111;
     font-family: 'Poppins', sans-serif;
     color : rgb(245, 245, 245);
+    font-family: "Signika Negative",sans-serif;
 }
 
 
@@ -52,6 +53,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    transition: all 1s ease;
     img{
         width: 60px;
     }
@@ -269,7 +271,7 @@ input.form-control:focus {
             justify-content: center;
             align-items: center; 
             &:hover { 
-                background: #000000; 
+                background: #2a2a2a; 
                 text-decoration: none;
             }
         }
@@ -315,6 +317,10 @@ input.form-control:focus {
     cursor: pointer;
     background: #1f1f1f;
     padding: 10px;
+    border: 1px solid transparent;
+    &:hover {
+        border: 1px solid #585858;
+    }
     .movie-title{
         font-size: 18px;
         padding: 10px 0 0 0;
@@ -326,7 +332,8 @@ input.form-control:focus {
     }
     img {
         min-height: 375px;
-    }        
+        border-radius: 2px;
+    }
 }
 
 .search-section {
@@ -353,6 +360,19 @@ input.form-control:focus {
 
 // movie details page
 
+@keyframes loadingAnimatedBg {
+    0% { background-color: #111}
+    50% { background-color: #333}
+    100% { background-color: #111}
+}
+
+.animated-bg{
+    width: 100%;
+    animation: loadingAnimatedBg 3s linear infinite alternate;
+    border-radius: 3px;
+}
+
+
 .one-movie {
     .movie-details-container{
         background: #2a2a2a;
@@ -373,8 +393,9 @@ input.form-control:focus {
             height: 100%;
             z-index: 0;
             background-size: cover;
-            background-repeat: no-repeat;
+            background-repeat: repeat-x;
             background-attachment: fixed;
+            background-position: center top;
         }
         .overlay {
             position: absolute;
@@ -389,6 +410,15 @@ input.form-control:focus {
                 text-transform: capitalize;
             }
         }
+
+        .movie-image {
+            box-shadow: 0 0 50px #000;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .video-trailer{
+        }
     }
 }
 
@@ -401,12 +431,17 @@ input.form-control:focus {
         .one-item{
             display: flex;
             justify-content: center;
-            background: #fff;
-            box-shadow: $main-boxShadow;
+            background: #2a2a2a;
             margin-bottom: 10px;
             align-items: stretch;
             max-height: 220px;
             overflow: hidden;
+            cursor: auto;
+            border: 1px solid transparent;
+            &:hover {
+                border: 1px solid #585858;
+            }
+
             .item-image {
                 width: 15%;
                 background-color: #e0e0e05c;
@@ -416,6 +451,7 @@ input.form-control:focus {
             .item-details {
                 width: 85%;
                 padding: 20px;
+                color: #FFF;
                 h2{
                     text-transform: capitalize;
                     margin-bottom: 0;

@@ -3,7 +3,14 @@ function scrollToTop() {
 }
 
 function removeLoadinScreen(){
-    $("#loading-screen").fadeOut();
+    $("#loading-screen").css({
+            transform : 'scale(3)',
+            opacity : 0
+        }
+    );
+    setTimeout(function(){
+        $("#loading-screen").remove()
+    } , 1000)
 }
 
 var controller = new ScrollMagic.Controller();
@@ -14,7 +21,7 @@ function pageHeaderEffect() {
 
     var bgToZero = TweenMax.to(bg, 1, {
         scale: 2,
-        opacity: 0,
+        opacity: 0.2,
     })
 
 
@@ -22,7 +29,7 @@ function pageHeaderEffect() {
     var parallaxScene = new ScrollMagic.Scene({
         triggerElement: bg, // <-- Use this to select current element
         triggerHook: 0.5,
-        duration: '80%',
+        duration: '100%',
     })
     //.addIndicators() // add indicators (requires plugin)
     .setTween(bgToZero).addTo(controller);
@@ -37,7 +44,8 @@ function pageHeaderEffect() {
     var parallaxScene2 = new ScrollMagic.Scene({
         triggerElement: hideContent, // <-- Use this to select current element
         triggerHook: 0.5,
-        duration: '80%',
+        duration: '100%',
     })
+    //.addIndicators() // add indicators (requires plugin)
     .setTween(hideContent).addTo(controller);
 }

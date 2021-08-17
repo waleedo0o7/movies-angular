@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer , SafeResourceUrl} from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { MainServiceService } from '../main-service.service';
 
@@ -10,6 +10,7 @@ declare var Power0: any;
 declare var ScrollMagic: any;
 declare var controller: any;
 declare var pageHeaderEffect: any;
+declare var scrollToTop: any;
 
 @Component({
   selector: 'app-movie-details',
@@ -32,7 +33,7 @@ export class MovieDetailsComponent implements OnInit {
   movieId:any;
   movieDetails:any;
   movieVideos:any;
-  secureVideoUrl:any;
+  secureVideoUrl: SafeResourceUrl = '';
   backdrops:any;
   lightGalleryList:any = [];
   movieCover:any;
@@ -64,9 +65,9 @@ export class MovieDetailsComponent implements OnInit {
       }
     }).subscribe(data=>{
       this.movieVideos = data;
-      // console.log(this.movieVideos.results[0].key);
       this.secureVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.movieVideos.results[0].key}`);
-      // console.log(this.secureVideoUrl);
+      console.log('this.secureVideoUrl');
+      console.log(this.secureVideoUrl);
     })
   }
  
@@ -83,13 +84,11 @@ export class MovieDetailsComponent implements OnInit {
       this.backdrops = data;
 
       for(let i=0; i<this.backdrops.backdrops.length; i++){
-        // console.log(this.backdrops.backdrops[i].file_path);
         this.lightGalleryList.push({
           src: `https://image.tmdb.org/t/p/original/${this.backdrops.backdrops[i].file_path}`,
           thumb: `https://image.tmdb.org/t/p/original/${this.backdrops.backdrops[i].file_path}`
         })
       }
-      // console.log(this.backdrops.backdrops)
 
       this.movieCover = `https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${this.backdrops.backdrops[0].file_path}`
     })
@@ -109,18 +108,11 @@ export class MovieDetailsComponent implements OnInit {
 
 
  
-  ngOnInit(): void {
-    var controller = new ScrollMagic.Controller();
-
-    
-    // $("#lightgallery").lightGallery({pager: true}); 
+  ngOnInit(): void { 
     console.log(this.getMovieVideo(this.movieId))
     this.getMovieDetails(this.movieId);
-    this.getBackdrops(this.movieId);
-    // setTimeout( () =>{
-    //   console.log(this.movieDetails)
-    // } , 2000)
-
+    this.getBackdrops(this.movieId); 
+    scrollToTop();
   }
 
   ngAfterViewInit() {
