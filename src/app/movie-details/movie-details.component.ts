@@ -83,10 +83,14 @@ export class MovieDetailsComponent implements OnInit {
     }).subscribe(data=>{
       this.backdrops = data;
 
+      console.log('data');
+      console.log(data);
+      
+
       for(let i=0; i<this.backdrops.backdrops.length; i++){
         this.lightGalleryList.push({
-          src: `https://image.tmdb.org/t/p/original/${this.backdrops.backdrops[i].file_path}`,
-          thumb: `https://image.tmdb.org/t/p/original/${this.backdrops.backdrops[i].file_path}`
+          src: `https://image.tmdb.org/t/p/w1280/${this.backdrops.backdrops[i].file_path}`,
+          thumb: `https://image.tmdb.org/t/p/w1280/${this.backdrops.backdrops[i].file_path}`
         })
       }
 
