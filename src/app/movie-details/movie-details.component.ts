@@ -11,6 +11,7 @@ declare var ScrollMagic: any;
 declare var controller: any;
 declare var pageHeaderEffect: any;
 declare var scrollToTop: any;
+declare var removeLoadinScreen: any;
 
 @Component({
   selector: 'app-movie-details',
@@ -120,6 +121,7 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    pageHeaderEffect();    
+    pageHeaderEffect();   
+    removeLoadinScreen(); 
   }
 }
