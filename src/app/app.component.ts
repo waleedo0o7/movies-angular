@@ -25,7 +25,14 @@ export class AppComponent implements OnInit {
   ]
 
   p: number = 1;
-  collection: any[] = this.someArrayOfThings;  
+  collection: any[] = this.someArrayOfThings;
+
+
+  closeMenu(el:any){
+    if ( window.innerWidth <= 992 ) {
+      el.click()
+    }
+  }
 
   ngOnInit() {
     this.testData()

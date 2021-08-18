@@ -5,13 +5,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <div class="movie-image animated-bg" style="min-height: 600px">
-
+                    <div class="movie-image">
+                        <img *ngIf="movieDetails" class="img-fluid" src="{{baseUrl}}original{{movieDetails?.poster_path}}" />
                         <div *ngIf="!movieDetails" class="d-flex justify-content-center align-items-center w-100 animated-bg" style="min-height: 550px">
                           <div  class="lds-ellipsis" style="opacity : 0.7"><div></div><div></div><div></div><div></div></div>
                         </div>
-
-                        <img *ngIf="movieDetails" class="img-fluid" src="{{baseUrl}}original{{movieDetails?.poster_path}}" />
                     </div>
                 </div>
                 <div class="col-md-7">
